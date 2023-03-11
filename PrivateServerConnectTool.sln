@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateServerConnectTool", "PrivateServerConnectTool.csproj", "{2A388305-9066-474E-A45C-72921F8609EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A388305-9066-474E-A45C-72921F8609EC}.Debug|x64.ActiveCfg = Debug|x64
+		{2A388305-9066-474E-A45C-72921F8609EC}.Debug|x64.Build.0 = Debug|x64
+		{2A388305-9066-474E-A45C-72921F8609EC}.Debug|x64.Deploy.0 = Debug|x64
+		{2A388305-9066-474E-A45C-72921F8609EC}.Release|x64.ActiveCfg = Release|x64
+		{2A388305-9066-474E-A45C-72921F8609EC}.Release|x64.Build.0 = Release|x64
+		{2A388305-9066-474E-A45C-72921F8609EC}.Release|x64.Deploy.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4C122C0-4DEA-4264-A1B1-448E2B6CE90F}
+	EndGlobalSection
+EndGlobal

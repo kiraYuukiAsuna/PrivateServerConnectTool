@@ -1,0 +1,58 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Window
+    x:Class="PrivateServerConnectTool.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PrivateServerConnectTool"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Spacing="10">
+        <RichTextBlock SelectionHighlightColor="Pink">
+            <Paragraph>Hello! Thank you for using this tool.</Paragraph>
+            <Paragraph>This tool is developed by WRL (email:daisyskye1425@163.com).</Paragraph>
+            <Paragraph>Current support game version: 3.4</Paragraph>
+            <Paragraph>It can help you manage patching game, proxying, connnecting server.</Paragraph>
+            <Paragraph>
+                As the private server has came out almost two years. There are
+                no one's offical server account being banned by playing priavte server. But I highly recommand
+                you take care of it, by patching and unpatching correctly and never using
+                other tool to do something dangerous. And do not using your real account when
+                playing priavte server.
+            </Paragraph>
+            <Paragraph>
+                Hope you enjoy the ride! And having fun! ----by WRL(email:daisyskye1425@163.com)
+                <Run FontStyle="Italic" FontWeight="Bold">Github link for new version:</Run>
+                <Hyperlink NavigateUri="https://github.com/kiraYuukiAsuna/PrivateServerConnectTool">Github Release Page</Hyperlink>
+            </Paragraph>
+        </RichTextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
+            <TextBlock Text="Proxy Status:" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="ProxyStatus" Text="Disabled" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="proxyPortTextBox" Header="Enter Proxy Port:"  PlaceholderText="1425" />
+            <CheckBox x:Name="httpsEnableCheckBox" Content="Enable HTTPS" VerticalAlignment="Bottom" Checked="handleEnableHTTPSChecked" Unchecked="handleEnableHTTPSUnchecked" />
+            <Button x:Name="enableProxyButton" Click="handleEnableProxyBtnClicked" VerticalAlignment="Bottom">Enable Proxy</Button>
+            <Button x:Name="disableProxyButton" Click="handleDisableProxyBtnClicked" VerticalAlignment="Bottom">Disable Proxy</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
+            <TextBlock Text="Patch Status:" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="patchStatus" Text="Unpatched" VerticalAlignment="Bottom"/>
+            <Button x:Name="patchButton" Click="handlePatchBtnClicked" VerticalAlignment="Bottom">Patch</Button>
+            <Button x:Name="unpatchButton" Click="handleUnpatchBtnClicked" VerticalAlignment="Bottom">Unpatch</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
+            <TextBox x:Name="gameExeFilePathTextBox" Header="Enter Game executable File Path:"  PlaceholderText="C:/Program Files/Genshin Impact/Genshin Impact Game/YuanShen.exe" />
+            <TextBox x:Name="serverIPTextBox" Header="Enter Server IP Address:"  PlaceholderText="127.0.0.1" />
+            <Button x:Name="lanuchGameButton" Click="handleLanuchGameBtnClicked" VerticalAlignment="Bottom">Lanuch Game</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
+            <Button x:Name="loadConfigButton" Click="handleLoadConfigBtnClicked" VerticalAlignment="Bottom">Load Config</Button>
+            <Button x:Name="saveConfigButton" Click="handleSaveConfigBtnClicked" VerticalAlignment="Bottom">Save Config</Button>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

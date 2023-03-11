@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PrivateServerConnectTool (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PrivateServerConnectTool (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
