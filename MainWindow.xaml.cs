@@ -237,10 +237,10 @@ namespace PrivateServerConnectTool
 
                 }
             }
-            var RSAPatchPath = Path.Combine(PatchPath,"RSAPatch.dll");
-            var mhypbase_path = Path.Combine(Directory.GetParent(currentConfig.gameExeFilePath).ToString(),"mhypbase.dll");
 
-            var patchResult = patch.DoPatch(RSAPatchPath,mhypbase_path);
+            var mhypbaseFullpath = Path.Combine(Directory.GetParent(currentConfig.gameExeFilePath).ToString(), "mhypbase.dll");
+
+            var patchResult = patch.DoPatch(PatchPath, mhypbaseFullpath);
 
             if(patchResult == Patch.PatchOpeartionStatus.SUCCESS)
             {

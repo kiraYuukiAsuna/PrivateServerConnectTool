@@ -11,7 +11,7 @@ namespace PrivateServerConnectTool
     {
         Dictionary<string, string> RSAPatchMD5;
         Dictionary<string, string> mhypbaseMD5;
-
+        Dictionary<string, string> patchFilename;
 
         public enum PatchOpeartionStatus
         {
@@ -24,11 +24,17 @@ namespace PrivateServerConnectTool
         }
         public Patch()
         { 
-            RSAPatchMD5= new Dictionary<string, string>();
+            RSAPatchMD5 = new Dictionary<string, string>();
             mhypbaseMD5 = new Dictionary<string, string>();
+            patchFilename = new Dictionary<string, string>();
 
             RSAPatchMD5.Add("v3.4", "505665eec269d92cc7aee7fba0da01fd");
             mhypbaseMD5.Add("v3.4", "cec8d9e5d9f2c4eeb4c60a958a9e419c");
+            patchFilename.Add("v3.4", "RSAPatch_v3.4.dll");
+
+            RSAPatchMD5.Add("v3.5", "f3466b6fc8bd2c32c137580f40c25e7c");
+            mhypbaseMD5.Add("v3.5", "948327bf35efdafe2869062aa940c864");
+            patchFilename.Add("v3.5", "RSAPatch_v3.5.dll");
         }
 
         public PatchOpeartionStatus GetPatchStatus(string mhypbasePath)
@@ -89,15 +95,6 @@ namespace PrivateServerConnectTool
 
         public PatchOpeartionStatus DoPatch(string RSAPatchPath, string mhypbasePath)
         {
-            if (!File.Exists(RSAPatchPath))
-            {
-                return PatchOpeartionStatus.PATCH_FILE_NOT_EXIST;
-            }
-            if (!File.Exists(mhypbasePath))
-            {
-                return PatchOpeartionStatus.mhypbase_FILE_NOT_EXIST;
-            }
-
             bool patchFind = false;
             string version = "";
 
@@ -121,21 +118,40 @@ namespace PrivateServerConnectTool
                 return PatchOpeartionStatus.PATCH_NOT_SUPPORT_CURRENT_GAME_VERSION;
             }
 
+            string RSAFilename;
+            bool RSAFilenameIsFind = patchFilename.TryGetValue(version, out RSAFilename);
+            var RSAPatchFullpath = Path.Combine(RSAPatchPath, RSAFilename);
+            
+            if (!RSAFilenameIsFind)
+            {
+                return PatchOpeartionStatus.PATCH_FILE_NOT_EXIST;
+            }
+
+            if (!File.Exists(RSAPatchFullpath))
+            {
+                return PatchOpeartionStatus.PATCH_FILE_NOT_EXIST;
+            }
+            if (!File.Exists(mhypbasePath))
+            {
+                return PatchOpeartionStatus.mhypbase_FILE_NOT_EXIST;
+            }
+
             string RSASupportMD5;
             bool RSAPatchFind = RSAPatchMD5.TryGetValue(version,out RSASupportMD5);
             if (RSAPatchFind)
             {
-                var currentRSAMD5 = Utilities.CalculateMD5(RSAPatchPath);
+                var currentRSAMD5 = Utilities.CalculateMD5(RSAPatchFullpath);
                 currentRSAMD5 = currentRSAMD5.ToUpper();
 
                 RSASupportMD5 = RSASupportMD5.ToUpper();
 
                 if (currentRSAMD5 == RSASupportMD5)
                 {
-                    File.Copy(mhypbasePath,mhypbasePath + ".backup",true);
-                    File.Copy(RSAPatchPath, mhypbasePath, true);
+  
+                        File.Copy(mhypbasePath, mhypbasePath + ".backup", true);
+                        File.Copy(RSAPatchFullpath, mhypbasePath, true);
 
-                    return PatchOpeartionStatus.SUCCESS;
+                        return PatchOpeartionStatus.SUCCESS;
                 }
                 else
                 {
