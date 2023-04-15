@@ -14,6 +14,7 @@
 		<WindowsPackageType>None</WindowsPackageType>
 		<ApplicationIcon>Assets\app_icon.ico</ApplicationIcon>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -21,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230118.102" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230217.4" />
 		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
 		<PackageReference Include="Titanium.Web.Proxy" Version="3.2.0" />
 		<Manifest Include="$(ApplicationManifest)" />
