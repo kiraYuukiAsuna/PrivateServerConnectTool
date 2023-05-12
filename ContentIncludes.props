@@ -1,0 +1,8 @@
+<Project>
+  <ItemGroup>
+    <Content Include="Patch/mhypbase.dll.backup.v3.4" />
+    <Content Include="Patch/mhypbase.dll.backup.v3.5" />
+    <Content Include="Patch/RSAPatch_v3.4.dll" />
+    <Content Include="Patch/RSAPatch_v3.5.dll" />
+  </ItemGroup>
+</Project>

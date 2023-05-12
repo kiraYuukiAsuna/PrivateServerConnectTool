@@ -1,6 +1,4 @@
-<!-- Copyright (c) Microsoft Corporation and Contributors. -->
-<!-- Licensed under the MIT License. -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <Window
     x:Class="PrivateServerConnectTool.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -11,7 +9,8 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Spacing="10">
-        <RichTextBlock SelectionHighlightColor="Pink">
+        
+        <RichTextBlock SelectionHighlightColor="Pink" Width="800">
             <Paragraph>Hello! Thank you for using this tool.</Paragraph>
             <Paragraph>This tool is developed by WRL (email:daisyskye1425@163.com).</Paragraph>
             <Paragraph>Current support game version: 3.4</Paragraph>
@@ -29,29 +28,32 @@
                 <Hyperlink NavigateUri="https://github.com/kiraYuukiAsuna/PrivateServerConnectTool">Github Release Page</Hyperlink>
             </Paragraph>
         </RichTextBlock>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
-            <TextBlock Text="Proxy Status:" VerticalAlignment="Bottom"/>
-            <TextBlock x:Name="ProxyStatus" Text="Disabled" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="proxyPortTextBox" Header="Enter Proxy Port:"  PlaceholderText="1425" />
-            <CheckBox x:Name="httpsEnableCheckBox" Content="Enable HTTPS" VerticalAlignment="Bottom" Checked="handleEnableHTTPSChecked" Unchecked="handleEnableHTTPSUnchecked" />
-            <Button x:Name="enableProxyButton" Click="handleEnableProxyBtnClicked" VerticalAlignment="Bottom">Enable Proxy</Button>
-            <Button x:Name="disableProxyButton" Click="handleDisableProxyBtnClicked" VerticalAlignment="Bottom">Disable Proxy</Button>
+            <TextBlock Text="Proxy Status:" Width="100" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="ProxyStatus" Width="100" Text="Disabled" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="proxyPortTextBox" Width="150" Header="Enter Proxy Port:"  PlaceholderText="1425" />
+            <CheckBox x:Name="httpsEnableCheckBox" Width="100" Content="Enable HTTPS" VerticalAlignment="Bottom" Checked="handleEnableHTTPSChecked" Unchecked="handleEnableHTTPSUnchecked" />
+            <Button x:Name="enableProxyButton" Width="120" Click="handleEnableProxyBtnClicked" VerticalAlignment="Bottom">Enable Proxy</Button>
+            <Button x:Name="disableProxyButton" Width="120" Click="handleDisableProxyBtnClicked" VerticalAlignment="Bottom">Disable Proxy</Button>
         </StackPanel>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
-            <TextBlock Text="Patch Status:" VerticalAlignment="Bottom"/>
-            <TextBlock x:Name="patchStatus" Text="Unpatched" VerticalAlignment="Bottom"/>
-            <Button x:Name="patchButton" Click="handlePatchBtnClicked" VerticalAlignment="Bottom">Patch</Button>
-            <Button x:Name="unpatchButton" Click="handleUnpatchBtnClicked" VerticalAlignment="Bottom">Unpatch</Button>
+            <TextBlock Text="Patch Status:" Width="100" VerticalAlignment="Bottom"/>
+            <TextBlock x:Name="patchStatus" Width="100" Text="Unpatched" VerticalAlignment="Bottom"/>
+            <Button x:Name="patchButton" Width="100" Click="handlePatchBtnClicked" VerticalAlignment="Bottom">Patch</Button>
+            <Button x:Name="unpatchButton" Width="100" Click="handleUnpatchBtnClicked" VerticalAlignment="Bottom">Unpatch</Button>
         </StackPanel>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
-            <TextBox x:Name="gameExeFilePathTextBox" Header="Enter Game executable File Path:"  PlaceholderText="C:/Program Files/Genshin Impact/Genshin Impact Game/YuanShen.exe" />
-            <TextBox x:Name="serverIPTextBox" Header="Enter Server IP Address:"  PlaceholderText="127.0.0.1" />
-            <Button x:Name="lanuchGameButton" Click="handleLanuchGameBtnClicked" VerticalAlignment="Bottom">Lanuch Game</Button>
+            <TextBox x:Name="gameExeFilePathTextBox" Width="500" Header="Enter Game executable File Path:"  PlaceholderText="C:/Program Files/Genshin Impact/Genshin Impact Game/YuanShen.exe" />
+            <TextBox x:Name="serverIPTextBox" Width="150" Header="Enter Server IP Address:"  PlaceholderText="127.0.0.1" />
+            <Button x:Name="lanuchGameButton" Width="120" Click="handleLanuchGameBtnClicked" VerticalAlignment="Bottom">Lanuch Game</Button>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" Spacing="10">
-            <Button x:Name="loadConfigButton" Click="handleLoadConfigBtnClicked" VerticalAlignment="Bottom">Load Config</Button>
-            <Button x:Name="saveConfigButton" Click="handleSaveConfigBtnClicked" VerticalAlignment="Bottom">Save Config</Button>
+            <Button x:Name="loadConfigButton" Width="100" Click="handleLoadConfigBtnClicked" VerticalAlignment="Bottom">Load Config</Button>
+            <Button x:Name="saveConfigButton" Width="100" Click="handleSaveConfigBtnClicked" VerticalAlignment="Bottom">Save Config</Button>
         </StackPanel>
 
     </StackPanel>
